@@ -1,0 +1,31 @@
+@import '../../../styles/variables/';
+
+.input {
+  width: 100%;
+  background-color: var(--color-main-bg);
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-main);
+  color: var(--color-primary);
+  border: none;
+
+  @include font-size(18, 700);
+
+  &__constrains {
+    &_large {
+      padding: 40px;
+    }
+
+    &_big {
+      padding: 30px;
+    }
+
+    &_medium {
+      padding: 20px;
+    }
+
+    &_small {
+      padding: 10px;
+    }
+  }
+}

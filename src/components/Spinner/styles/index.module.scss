@@ -1,0 +1,176 @@
+
+.pl,
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-side-shadows,
+.pl__ball-texture,
+.pl__inner-ring,
+.pl__outer-ring,
+.pl__track-cover {
+	border-radius: 50%;
+}
+
+.pl {
+	position: relative;
+	width: calc(var(--spinner-size) * 16px);
+	height: calc(var(--spinner-size) * 16px);
+}
+
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-outer-shadow,
+.pl__ball-side-shadows,
+.pl__ball-texture,
+.pl__ball-texture:before,
+.pl__inner-ring,
+.pl__outer-ring,
+.pl__track-cover {
+	position: absolute;
+}
+
+.pl__ball,
+.pl__ball-inner-shadow,
+.pl__ball-outer-shadow,
+.pl__ball-texture:before,
+.pl__track-cover {
+	animation: ball 3s linear infinite;
+}
+
+.pl__ball {
+	top: calc(50% - calc(var(--spinner-size) * 1.25px));
+	left: calc(50% - calc(var(--spinner-size) * 1.25px));
+	transform: rotate(0) translateY(calc(var(--spinner-size) * (-6.5px)));
+	width: calc(var(--spinner-size) * (2.5px));
+	height: calc(var(--spinner-size) * (2.5px));
+}
+
+.pl__ball-inner-shadow {
+	animation-name: ballInnerShadow;
+	box-shadow:
+		0 calc(var(--spinner-size) * 0.1px) calc(var(--spinner-size) * 0.2px) hsla(0, 0%, 0%, 0.3),
+		0 0 calc(var(--spinner-size) * 0.2px) hsla(0, 0%, 0%, 0.1) inset,
+		0 calc(var(--spinner-size) * (-1px)) calc(var(--spinner-size) * 0.5px) hsla(0, 0%, 0%, 0.15) inset;
+	width: 100%;
+	height: 100%;
+}
+
+.pl__ball-outer-shadow {
+	animation-name: ballOuterShadow;
+	background-image: linear-gradient(hsla(0, 0%, 0%, 0.15),hsla(0, 0%, 0%, 0));
+	border-radius: 0 0 50% 50% / 0 0 100% 100%;
+	filter: blur(2px);
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 250%;
+	transform: rotate(20deg);
+	transform-origin: 50% 0;
+	z-index: -2;
+}
+
+.pl__ball-side-shadows {
+	background-color: hsla(0, 0%, 0%, 0.1);
+	filter: blur(2px);
+	width: 100%;
+	height: 100%;
+	transform: scale(0.75,1.1);
+	z-index: -1;
+}
+
+.pl__ball-texture {
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	transform: translate3d(0,0,0);
+}
+
+.pl__ball-texture:before {
+	animation-name: ballTexture;
+	animation-duration: 0.25s;
+	background: url(https://assets.codepen.io/416221/snow.jpg) 0 0 / 50% 100%;
+	content: "";
+	display: block;
+	filter: brightness(1.05);
+	top: 0;
+	right: 0;
+	width: 200%;
+	height: 100%;
+}
+
+.pl__inner-ring {
+	box-shadow:
+		0 calc(var(--spinner-size) * (-0.25px)) calc(var(--spinner-size) * 0.5px) hsla(0, 0%, 100%, 0.4),
+		0 calc(var(--spinner-size) * 0.5px) calc(var(--spinner-size) * 0.75px) hsla(0, 0%, 100%, 0.4) inset,
+		0 calc(var(--spinner-size) * 0.5px) calc(var(--spinner-size) * 0.375px) hsla(0, 0%, 0%, 0.15),
+		0 calc(var(--spinner-size) * (-0.5px)) calc(var(--spinner-size) * 0.75px) hsla(0, 0%, 0%, 0.15) inset;
+	top: calc(var(--spinner-size) * 2.375px);
+	left: calc(var(--spinner-size) * 2.375px);
+	width: calc(100% - calc(var(--spinner-size) * 4.75px));
+	height: calc(100% - calc(var(--spinner-size) * 4.75px));
+}
+
+.pl__outer-ring {
+	box-shadow:
+		0 calc(var(--spinner-size) * (-0.45px)) calc(var(--spinner-size) * (0.375px)) hsla(0, 0%, 0%, 0.15),
+		0 calc(var(--spinner-size) * (0.5px)) calc(var(--spinner-size) * (0.75px)) hsla(0, 0%, 0%, 0.15) inset,
+		0 calc(var(--spinner-size) * (0.25px)) calc(var(--spinner-size) * (0.5px)) hsla(0, 0%, 100%, 0.4),
+		0 calc(var(--spinner-size) * (-0.5px)) calc(var(--spinner-size) * (0.75px)) hsla(0, 0%, 100%, 0.4) inset;
+	top: calc(var(--spinner-size) * (0.75px));
+	left: calc(var(--spinner-size) * (0.75px));
+	width: calc(100% - calc(var(--spinner-size) * (1.5px)));
+	height: calc(100% - calc(var(--spinner-size) * (1.5px)));
+}
+
+.pl__track-cover {
+	animation-name: trackCover;
+	background-image: conic-gradient(hsla(223, 90%, 95%, 1) 210deg, hsla(223, 90%, 95%, 0) 270deg);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Animations */
+@keyframes ball {
+	from {
+		transform: rotate(0) translateY(calc(var(--spinner-size) * (-6.5px)));
+	}
+	50% {
+		transform: rotate(180deg) translateY(calc(var(--spinner-size) * (-6px)));
+	}
+	to {
+		transform: rotate(360deg) translateY(calc(var(--spinner-size) * (-6.5px)));
+	}
+}
+@keyframes ballInnerShadow {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+@keyframes ballOuterShadow {
+	from {
+		transform: rotate(20deg);
+	}
+	to {
+		transform: rotate(-340deg);
+	}
+}
+@keyframes ballTexture {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(50%);
+	}
+}
+@keyframes trackCover {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

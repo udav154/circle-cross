@@ -1,0 +1,121 @@
+@import '../../../styles/variables/';
+
+.typography {
+  @include font-size(12, 400);
+
+  &_100 {
+    @include font-size(100, 700);
+  }
+
+  &_80 {
+    @include font-size(80, 700);
+  }
+
+  &_60 {
+    @include font-size(60, 500);
+  }
+
+  &_50 {
+    @include font-size(50, 500);
+  }
+
+  &_48 {
+    @include font-size(48, 500);
+  }
+
+  &_46 {
+    @include font-size(46, 700);
+  }
+
+  &_40 {
+    @include font-size(40, 700);
+  }
+
+  &_36 {
+    @include font-size(36, 700);
+  }
+
+  &_30 {
+    @include font-size(30, 400);
+  }
+
+  &_24 {
+    @include font-size(24, 400);
+  }
+
+  &_22 {
+    @include font-size(22, 400);
+  }
+
+  &_20 {
+    @include font-size(20, 400);
+  }
+
+  &_18 {
+    @include font-size(18, 400);
+  }
+
+  &_16 {
+    @include font-size(16, 400);
+  }
+
+  &_15 {
+    @include font-size(15, 400);
+  }
+
+  &_14 {
+    @include font-size(14, 400);
+  }
+
+  &_13 {
+    @include font-size(13, 400);
+  }
+
+  &_12 {
+    @include font-size(12, 400);
+  }
+
+  &_11 {
+    @include font-size(11, 400);
+  }
+
+  &_10 {
+    @include font-size(10, 400);
+  }
+
+  &_9 {
+    @include font-size(9, 400);
+  }
+
+  &_8 {
+    @include font-size(8 , 400);
+  }
+
+  &__wight {
+    &_400 {
+      font-weight: 400;
+    }
+
+    &_500 {
+      font-weight: 500;
+    }
+
+    &_700 {
+      font-weight: 700;
+    }
+  }
+
+  &__color {
+    &_red {
+      color: var(--color-red);
+    }
+
+    &_primary {
+      color: var(--color-primary);
+    }
+
+    &_primary2 {
+      color: var(--color-primary2);
+    }
+  }
+}

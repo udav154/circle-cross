@@ -1,0 +1,54 @@
+/* stylelint-disable */
+
+.container {
+    &__fadeIn {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+  
+    &__fadeInLeft {
+      transform: translateX(-150%);
+      animation: fadeInLeft 1s forwards;
+    }
+  
+    &__fadeInTop {
+      transform: translateY(-150%);
+      animation: fadeInTop 1s forwards;
+    }
+  
+    &__fadeInBottom {
+      transform: translateY(150%);
+      animation: fadeInBottom 1s forwards;
+    }
+  
+    &__fadeInRight {
+      transform: translateY(150%);
+      animation: fadeInRight 1s forwards;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes fadeInLeft {
+    0% { transform: translateX(-150%); }
+    100% { transform: translateY(0); }
+  }
+  
+  @keyframes fadeInRight {
+    0% { transform: translateX(150%); }
+    100% { transform: translateY(0); }
+  }
+  
+  @keyframes fadeInTop {
+    0% { transform: translateY(-150%); }
+    100% { transform: translateY(0); }
+  }
+  
+  @keyframes fadeInBottom {
+    0% { transform: translateY(150%); }
+    100% { transform: translateY(0); }
+  }
+  /* stylelint-enable */

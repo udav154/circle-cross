@@ -1,0 +1,430 @@
+@mixin ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+@mixin row-flex() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background-color: transparent;
+    /* «цвет полосы скроллбара» */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: var(--gx-color-input-hover);
+    /* «цвет ползунка» */
+  }
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin row($mr) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -#{$mr}px;
+  margin-right: -#{$mr}px;
+}
+
+@mixin square-icon($size) {
+  --icon-width: #{$size}px;
+  --icon-height: #{$size}px;
+}
+
+/**
+* t - top
+* w - wrap
+* n - nowrap
+* s - space-between
+*/
+@mixin flexcol($type: 't', $wrap: 'w') {
+  display: flex;
+  flex-direction: column;
+  @if ($type == 't') {
+    justify-content: flex-start;
+  }
+  @if ($type == 's') {
+    justify-content: space-between;
+  }
+  @if ($wrap == 'w') {
+    flex-wrap: wrap;
+  }
+  @if ($type == 'n') {
+    flex-wrap: nowrap;
+  }
+}
+
+@mixin customWidth($width) {
+  @media screen and (max-width: #{$size}) {
+    @content;
+  }
+}
+
+@mixin desktop-lg {
+  @media screen and (max-width: 2560px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (max-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin laptop-lg {
+  @media screen and (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin laptop-md {
+  @media screen and (max-width: 1460px) {
+    @content;
+  }
+}
+@mixin laptop-sm {
+  @media screen and (max-width: 1366px) {
+    @content;
+  }
+}
+
+@mixin laptop-xs {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin laptop-old {
+  @media screen and (max-height: 810px) and (min-width: 1150px) {
+    @content;
+  }
+}
+
+@mixin tablet-lg {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media screen and (max-width: 810px) {
+    @content;
+  }
+}
+@mixin tablet-md {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: 568px) {
+    @content;
+  }
+}
+
+@mixin mobile-550 {
+  @media screen and (max-width: 550px) {
+    @content;
+  }
+}
+
+@mixin mobile-lg {
+  @media screen and (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin mobile-md {
+  @media screen and (max-width: 360px) {
+    @content;
+  }
+}
+
+@mixin mobile-sm {
+  @media screen and (max-width: 320px) {
+    @content;
+  }
+}
+
+/**
+* l - left
+* r - right
+* t - top
+* b - bottom
+* c - center
+* s - space-between
+*/
+@mixin flex($type) {
+  display: flex;
+  @if ($type == 'lc') {
+    justify-content: flex-start;
+    align-items: center;
+  }
+  @if ($type == 'sc') {
+    justify-content: space-between;
+    align-items: center;
+  }
+  @if ($type == 'rc') {
+    justify-content: flex-end;
+    align-items: center;
+  }
+  @if ($type == 'cc') {
+    justify-content: center;
+    align-items: center;
+  }
+  @if ($type == 'ct') {
+    justify-content: center;
+    align-items: flex-start;
+  }
+  @if ($type == 'lt') {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  @if ($type == 'st') {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  @if ($type == 'rt') {
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  @if ($type == 'cb') {
+    justify-content: center;
+    align-items: flex-end;
+  }
+  @if ($type == 'lb') {
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  @if ($type == 'sb') {
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  @if ($type == 'rb') {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+@mixin font-size($size, $weight) {
+  @include font($size);
+  font-weight: $weight
+}
+
+
+/**
+* 8 - 16 = шаг 1
+* 16 - 80 = шаг 2
+*
+*/
+@mixin font($size) {
+  /**@example Расширениe */
+  // @if ($size == 5) {
+  //   font-size: 5px;
+  //   line-height: 7px;
+  //   @include mobile() {
+  //     @include font(3);
+  //   }
+  // }
+  @if ($size == 8) {
+    font-size: 8px;
+    line-height: 10px;
+  }
+  @if ($size == 9) {
+    font-size: 9px;
+    line-height: 11px;
+  }
+  @if ($size == 10) {
+    font-size: 10px;
+    line-height: 12px;
+  }
+  @if ($size == 11) {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  @if ($size == 12) {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  @if ($size == 13) {
+    font-size: 13px;
+    line-height: 15px;
+  }
+  @if ($size == 14) {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  @if ($size == 15) {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  @if ($size == 16) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  @if ($size == 18) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  //* 20 */
+
+  @if ($size == 20) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  @if ($size == 22) {
+    font-size: 22px;
+    line-height: 27px;
+  }
+  @if ($size == 24) {
+    font-size: 24px;
+    line-height: 29px;
+  }
+  @if ($size == 26) {
+    font-size: 26px;
+    line-height: 31px;
+  }
+  @if ($size == 28) {
+    font-size: 28px;
+    line-height: 42px;
+  }
+
+  //* 30 */
+
+  @if ($size == 30) {
+    font-size: 30px;
+    line-height: 39px;
+  }
+  @if ($size == 32) {
+    font-size: 32px;
+    line-height: 130%;
+  }
+  @if ($size == 34) {
+    font-size: 34px;
+    line-height: 130%;
+  }
+  @if ($size == 36) {
+    font-size: 36px;
+    line-height: 130%;
+  }
+  @if ($size == 38) {
+    font-size: 38px;
+    line-height: 130%;
+  }
+
+  //* 40 */
+
+  @if ($size == 40) {
+    font-size: 40px;
+    line-height: 130%;
+  }
+  @if ($size == 42) {
+    font-size: 42px;
+    line-height: 130%;
+  }
+  @if ($size == 44) {
+    font-size: 44px;
+    line-height: 130%;
+  }
+  @if ($size == 46) {
+    font-size: 46px;
+    line-height: 130%;
+  }
+  @if ($size == 48) {
+    font-size: 48px;
+    line-height: 130%;
+  }
+
+  //* 50 */
+
+  @if ($size == 50) {
+    font-size: 50px;
+    line-height: 130%;
+  }
+  @if ($size == 52) {
+    font-size: 52px;
+    line-height: 120%;
+  }
+  @if ($size == 54) {
+    font-size: 54px;
+    line-height: 120%;
+  }
+  @if ($size == 56) {
+    font-size: 56px;
+    line-height: 120%;
+  }
+  @if ($size == 58) {
+    font-size: 58px;
+    line-height: 120%;
+  }
+
+  //* 60 */
+
+  @if ($size == 60) {
+    font-size: 60px;
+    line-height: 120%;
+  }
+  @if ($size == 62) {
+    font-size: 62px;
+    line-height: 120%;
+  }
+  @if ($size == 64) {
+    font-size: 64px;
+    line-height: 120%;
+  }
+  @if ($size == 66) {
+    font-size: 66px;
+    line-height: 120%;
+  }
+  @if ($size == 68) {
+    font-size: 68px;
+    line-height: 120%;
+  }
+  @if ($size == 68) {
+    font-size: 68px;
+    line-height: 120%;
+  }
+
+  //* 70 */
+
+  @if ($size == 70) {
+    font-size: 70px;
+    line-height: 110%;
+  }
+  @if ($size == 72) {
+    font-size: 72px;
+    line-height: 110%;
+  }
+  @if ($size == 74) {
+    font-size: 74px;
+    line-height: 110%;
+  }
+  @if ($size == 76) {
+    font-size: 76px;
+    line-height: 110%;
+  }
+  @if ($size == 78) {
+    font-size: 78px;
+    line-height: 110%;
+  }
+
+  //* 80 */
+
+  @if ($size == 80) {
+    font-size: 80px;
+    line-height: 110%;
+  }
+}
